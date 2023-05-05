@@ -1,17 +1,9 @@
 <template>
   <base-container v-if="user">
     <h2>{{ user.fullName }}: Projects</h2>
-    <base-search
-      v-if="hasProjects"
-      @search="updateSearch"
-      :search-term="enteredSearchTerm"
-    ></base-search>
+    <base-search v-if="hasProjects" @search="updateSearch" :search-term="enteredSearchTerm"></base-search>
     <ul v-if="hasProjects">
-      <project-item
-        v-for="prj in availableProjects"
-        :key="prj.id"
-        :title="prj.title"
-      ></project-item>
+      <project-item v-for="prj in availableProjects" :key="prj.id" :title="prj.title"></project-item>
     </ul>
     <h3 v-else>No projects found.</h3>
   </base-container>
@@ -31,7 +23,7 @@ const enteredSearchTerm = ref('')
 const activeSearchTerm = ref('')
 
 const hasProjects = computed(() => {
-  return props.user.projects && availableProjects.value.length > 0
+  return props.user.projects && props.user.projects.length > 0
 })
 
 const availableProjects = computed(() => {
