@@ -1,9 +1,17 @@
 <template>
   <base-container v-if="user">
     <h2>{{ user.fullName }}: Projects</h2>
-    <base-search v-if="hasProjects" @search="updateSearch" :search-term="enteredSearchTerm"></base-search>
+    <base-search
+      v-if="hasProjects"
+      @search="updateSearch"
+      :search-term="enteredSearchTerm"
+    ></base-search>
     <ul v-if="hasProjects">
-      <project-item v-for="prj in availableProjects" :key="prj.id" :title="prj.title"></project-item>
+      <project-item
+        v-for="prj in availableProjects"
+        :key="prj.id"
+        :title="prj.title"
+      ></project-item>
     </ul>
     <h3 v-else>No projects found.</h3>
   </base-container>
@@ -13,7 +21,7 @@
 </template>
 
 <script setup>
-import { ref, watch, computed, toRefs } from 'vue'
+import { ref, watch, computed } from 'vue'
 import ProjectItem from './ProjectItem.vue'
 
 const props = defineProps({
@@ -45,10 +53,12 @@ watch(enteredSearchTerm, (val) => {
   }, 100)
 })
 
-const { user } = toRefs(props)
-watch(user, () => {
-  enteredSearchTerm.value = ''
-})
+watch(
+  () => props.user,
+  () => {
+    enteredSearchTerm.value = ''
+  }
+)
 </script>
 
 <style scoped>
