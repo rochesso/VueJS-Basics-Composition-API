@@ -6,6 +6,8 @@ By exploring the basics of both APIs, I can have a deeper understanding of how t
 
 Through this project, I could learn the skills necessary to create scalable, maintainable, and efficient Vue.js applications using the Composition API. This project is was an excellent opportunity to broaden my understanding of Vue.js and improve my proficiency in using it.
 
+### [Certificate](https://www.udemy.com/certificate/UC-9601468e-cbce-4dae-a27f-3f8be90af17e/)
+
 ### [Credits](https://www.udemy.com/course/vuejs-2-the-complete-guide/)
 
 # VueJS
